@@ -1,44 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Aesthetic HTML Only Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimal Aesthetic Website</title>
+  <style>
+    /* ------------------ RESET & BASE ------------------ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #222;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    section {
+      padding: 80px 10%;
+    }
+
+    /* ------------------ NAVBAR ------------------ */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #111;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #666;
+    }
+
+    /* ------------------ HERO ------------------ */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      background: linear-gradient(135deg, #ffffff, #f1f1f1);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #111;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 30px;
+      max-width: 600px;
+    }
+
+    .hero a {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #111;
+      color: #fff;
+      border-radius: 30px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .hero a:hover {
+      background: #444;
+    }
+
+    /* ------------------ ABOUT ------------------ */
+    .about {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .about img {
+      width: 400px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .about-content {
+      flex: 1;
+    }
+
+    .about-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #111;
+    }
+
+    .about-content p {
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    /* ------------------ SERVICES ------------------ */
+    .services {
+      text-align: center;
+    }
+
+    .services h2 {
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+    }
+
+    .service-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .service {
+      background: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .service:hover {
+      transform: translateY(-10px);
+    }
+
+    .service h3 {
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    .service p {
+      color: #555;
+    }
+
+    /* ------------------ PORTFOLIO ------------------ */
+    .portfolio {
+      text-align: center;
+    }
+
+    .portfolio h2 {
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .portfolio-item {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .portfolio-item img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .portfolio-item h3 {
+      padding: 20px;
+      font-size: 1.3rem;
+      color: #111;
+    }
+
+    /* ------------------ CONTACT ------------------ */
+    .contact {
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .contact p {
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    .contact form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact input, .contact textarea {
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.3s ease;
+    }
+
+    .contact input:focus, .contact textarea:focus {
+      border: 1px solid #111;
+    }
+
+    .contact button {
+      padding: 15px;
+      border: none;
+      border-radius: 30px;
+      background: #111;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact button:hover {
+      background: #444;
+    }
+
+    /* ------------------ FOOTER ------------------ */
+    footer {
+      text-align: center;
+      padding: 40px 10%;
+      background: #111;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #fff;
+      margin: 0 10px;
+      transition: opacity 0.3s ease;
+    }
+
+    footer a:hover {
+      opacity: 0.7;
+    }
+  </style>
 </head>
-<body bgcolor="#f5f5f5" text="#333" link="#0066cc" vlink="#555" alink="#ff6600">
+<body>
 
-    <center>
-        <h1 style="font-family: Georgia;">🌸 Welcome to My Aesthetic Page 🌸</h1>
-        <hr width="60%">
-        <br>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Aesthetic</div>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-        <h3 style="font-family: Verdana;">About Me</h3>
-        <p style="width: 60%; font-family: Arial;">
-            Hello! This is a minimal HTML-only website.  
-            No CSS, no JavaScript — just pure vintage HTML vibes.  
-            Simple. Clean. Aesthetic. ✨
-        </p>
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <h1>Minimalism Meets Elegance</h1>
+    <p>A clean, modern, and aesthetic website design built with pure HTML and CSS.</p>
+    <a href="#about">Explore More</a>
+  </section>
 
-        <br>
-        <h3 style="font-family: Verdana;">🌿 Links</h3>
-        <p>
-            <a href="https://example.com">My Portfolio</a> | 
-            <a href="https://example.com">Projects</a> | 
-            <a href="mailto:someone@example.com">Contact</a>
-        </p>
+  <!-- About -->
+  <section class="about" id="about">
+    <img src="https://picsum.photos/500/400" alt="About">
+    <div class="about-content">
+      <h2>About Us</h2>
+      <p>We believe in simplicity and minimalism. Our designs focus on clean aesthetics, smooth user experience, and timeless elegance.</p>
+      <p>We create digital experiences that are not only visually pleasing but also highly functional.</p>
+    </div>
+  </section>
 
-        <br>
-        <h3 style="font-family: Verdana;">Gallery</h3>
-        <table border="0" cellspacing="20">
-            <tr>
-                <td><img src="https://via.placeholder.com/150" alt="Image 1"></td>
-                <td><img src="https://via.placeholder.com/150" alt="Image 2"></td>
-                <td><img src="https://via.placeholder.com/150" alt="Image 3"></td>
-            </tr>
-        </table>
+  <!-- Services -->
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="service-cards">
+      <div class="service">
+        <h3>Web Design</h3>
+        <p>Clean, modern, and responsive website designs that work seamlessly on all devices.</p>
+      </div>
+      <div class="service">
+        <h3>Branding</h3>
+        <p>We craft visual identities that tell your brand story in a minimal yet impactful way.</p>
+      </div>
+      <div class="service">
+        <h3>Development</h3>
+        <p>Efficient and scalable code to bring your vision to life with minimalistic perfection.</p>
+      </div>
+    </div>
+  </section>
 
-        <br><hr width="40%">
-        <p><i>Made with ❤️ using only HTML</i></p>
-    </center>
+  <!-- Portfolio -->
+  <section class="portfolio" id="portfolio">
+    <h2>Our Work</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://picsum.photos/600/400?random=1" alt="Project 1">
+        <h3>Project One</h3>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://picsum.photos/600/400?random=2" alt="Project 2">
+        <h3>Project Two</h3>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://picsum.photos/600/400?random=3" alt="Project 3">
+        <h3>Project Three</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <h2>Get in Touch</h2>
+    <p>We’d love to hear from you. Send us a message and we’ll respond soon.</p>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="6" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Aesthetic. All Rights Reserved.</p>
+    <p>
+      <a href="#">Facebook</a> | 
+      <a href="#">Instagram</a> | 
+      <a href="#">Twitter</a>
+    </p>
+  </footer>
 
 </body>
 </html>
