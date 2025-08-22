@@ -1,150 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cool Animated Page</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      color: #fff;
-      overflow-x: hidden;
-    }
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      animation: fadeIn 2s ease-in-out;
-    }
-    header h1 {
-      font-size: 3rem;
-      margin: 0;
-      animation: slideDown 1.5s ease-out;
-    }
-    header p {
-      font-size: 1.2rem;
-      animation: fadeIn 2.5s ease-in-out;
-    }
-
-    /* Navigation */
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 15px;
-      background: rgba(0,0,0,0.3);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      position: relative;
-    }
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #00f7ff;
-      transition: width 0.3s;
-    }
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    /* Card Section */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 40px;
-    }
-    .card {
-      background: rgba(255,255,255,0.1);
-      border-radius: 15px;
-      padding: 20px;
-      backdrop-filter: blur(5px);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    }
-
-    /* Button */
-    .btn {
-      display: inline-block;
-      padding: 12px 25px;
-      margin-top: 15px;
-      border: none;
-      border-radius: 30px;
-      background: linear-gradient(45deg, #00c6ff, #0072ff);
-      color: white;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-    .btn:hover {
-      transform: scale(1.1);
-    }
-
-    /* Animation Keyframes */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes slideDown {
-      from { transform: translateY(-50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: rgba(0,0,0,0.3);
-      margin-top: 40px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Aesthetic HTML Only Website</title>
 </head>
-<body>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#features">Features</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<body bgcolor="#f5f5f5" text="#333" link="#0066cc" vlink="#555" alink="#ff6600">
 
-  <header id="home">
-    <h1>✨ Welcome to My Cool Page ✨</h1>
-    <p>Animations, gradients, and interactivity combined into one awesome design.</p>
-  </header>
+    <center>
+        <h1 style="font-family: Georgia;">🌸 Welcome to My Aesthetic Page 🌸</h1>
+        <hr width="60%">
+        <br>
 
-  <section class="cards" id="features">
-    <div class="card">
-      <h2>🚀 Fast</h2>
-      <p>Lightning-fast performance with smooth animations.</p>
-      <button class="btn">Learn More</button>
-    </div>
-    <div class="card">
-      <h2>🎨 Stylish</h2>
-      <p>Modern gradient backgrounds and cool hover effects.</p>
-      <button class="btn">Discover</button>
-    </div>
-    <div class="card">
-      <h2>⚡ Interactive</h2>
-      <p>Engaging UI with hover effects and sticky navigation.</p>
-      <button class="btn">Try Now</button>
-    </div>
-  </section>
+        <h3 style="font-family: Verdana;">About Me</h3>
+        <p style="width: 60%; font-family: Arial;">
+            Hello! This is a minimal HTML-only website.  
+            No CSS, no JavaScript — just pure vintage HTML vibes.  
+            Simple. Clean. Aesthetic. ✨
+        </p>
 
-  <footer id="contact">
-    <p>Made with ❤️ by You | © 2025</p>
-  </footer>
+        <br>
+        <h3 style="font-family: Verdana;">🌿 Links</h3>
+        <p>
+            <a href="https://example.com">My Portfolio</a> | 
+            <a href="https://example.com">Projects</a> | 
+            <a href="mailto:someone@example.com">Contact</a>
+        </p>
+
+        <br>
+        <h3 style="font-family: Verdana;">Gallery</h3>
+        <table border="0" cellspacing="20">
+            <tr>
+                <td><img src="https://via.placeholder.com/150" alt="Image 1"></td>
+                <td><img src="https://via.placeholder.com/150" alt="Image 2"></td>
+                <td><img src="https://via.placeholder.com/150" alt="Image 3"></td>
+            </tr>
+        </table>
+
+        <br><hr width="40%">
+        <p><i>Made with ❤️ using only HTML</i></p>
+    </center>
+
 </body>
 </html>
 
